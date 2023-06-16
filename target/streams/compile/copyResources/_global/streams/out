@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\PlayProject task\PlayProject-task\PlayProject-task\conf\application.conf,E:\PlayProject task\PlayProject-task\PlayProject-task\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\PlayProject task\PlayProject-task\PlayProject-task\conf\logback.xml,E:\PlayProject task\PlayProject-task\PlayProject-task\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\PlayProject task\PlayProject-task\PlayProject-task\conf\routes,E:\PlayProject task\PlayProject-task\PlayProject-task\target\scala-2.13\classes\routes)[0m

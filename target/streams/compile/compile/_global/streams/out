@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mE:\PlayProject task\PlayProject-task\PlayProject-task\app\controllers\ForgotPasswordController.java:46:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   method sendEmail(java.lang.String,java.lang.String,java.lang.String)[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable emailUtil of type Util.EmailUtil[0m
+[0m[[0m[31merror[0m] [0m[0memailUtil.sendEmail[0m

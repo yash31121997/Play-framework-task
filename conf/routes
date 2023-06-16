@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET     /                           controllers.HomeController.index
+GET    /explore                     controllers.HomeController.explore
+GET    /tutorial                    controllers.HomeController.tutorial
+
+# An example controller showing a sample home page
+
+POST   /authenticate                controllers.MyController.authenticate()
+POST     /login                     controllers.UserController.login(request : Request)
+POST     /createUser                controllers.UserController.createUser(request : Request)
+
++nocsrf
+POST    /getDashboard                controllers.DashboardController.getDashboard(request : Request)
+
++nocsrf
+POST    /logout                controllers.DashboardController.logout(request : Request)
+
++nocsrf
+POST    /changePassword        controllers.ChangePasswordController.changePassword(request : Request)
+
+POST    /forgotPassword        controllers.ForgotPasswordController.forgotPassword(request : Request)
+
+POST    /verifyOtp             controllers.ForgotPasswordController.verifyOtp(request : Request)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
