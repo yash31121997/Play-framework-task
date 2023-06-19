@@ -4,6 +4,7 @@ import Model.User;
 import Repository.UserRepository;
 import Util.EmailUtil;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.mindrot.jbcrypt.BCrypt;
 import play.Logger;
 import play.api.libs.mailer.MailerClient;
 import play.libs.Json;
@@ -71,7 +72,8 @@ public class ForgotPasswordController {
         System.out.println(id);
         
         if (otp.equals(code) && newPassword.equals(confirmPassword)) {
-            boolean success = userRepository.updatePassword(String.valueOf(id), newPassword);
+           String newPassword1 = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+            boolean success = userRepository.updatePassword(String.valueOf(id), newPassword1);
             System.out.println(success);
 
             if (success) {

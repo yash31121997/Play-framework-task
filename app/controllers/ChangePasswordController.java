@@ -3,6 +3,7 @@ package controllers;
 import Repository.UserRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.mindrot.jbcrypt.BCrypt;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -55,6 +56,9 @@ public class ChangePasswordController extends Controller {
             JsonNode response1 = Json.parse(data);
 
             String id = response1.findValue("id").asText();   //String.valueOf(jsonFormattedString.get("id"));
+
+
+
             String userPassword = response1.findValue("password").asText();  //String.valueOf(jsonFormattedString.get("password")).replaceAll("\"", "");
             System.out.println(userPassword);
 
@@ -64,8 +68,11 @@ public class ChangePasswordController extends Controller {
             String newPassword = json.get("newPassword").asText();
             String confirmPassword = json.get("confirmPassword").asText();
 
-            if (password.equals(userPassword) && newPassword.equals(confirmPassword)) {
-                boolean success = userRepository.updatePassword(id, newPassword);
+
+
+            if ( BCrypt.checkpw(password, userPassword) && newPassword.equals(confirmPassword)) {
+                String newPassword1 = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+                boolean success = userRepository.updatePassword(id, newPassword1);
 
                 if (success) {
                  // Return success response
@@ -74,7 +81,6 @@ public class ChangePasswordController extends Controller {
                     // Return failure response
                     return badRequest(Json.toJson("Failed to update password"));
                 }
-
             }
             else{
                 return ok("old password is incorrect");

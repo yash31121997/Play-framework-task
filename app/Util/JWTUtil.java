@@ -33,20 +33,20 @@ public class JWTUtil {
         return null;
     }
 
-    public static boolean validateToken(String token) {
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
-            JWT.require(algorithm)
-                    .withIssuer(ISSUER)
-                    .build()
-                    .verify(token);
-
-            return true;
-        } catch (JWTVerificationException exception) {
-            exception.printStackTrace();
-        }
-
-        return false;
-    }
+//    public static boolean validateToken(String token) {
+//        try {
+//            Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
+//            JWT.require(algorithm)
+//                    .withIssuer(ISSUER)
+//                    .build()
+//                    .verify(token);
+//
+//            return true;
+//        } catch (JWTVerificationException exception) {
+//            exception.printStackTrace();
+//        }
+//
+//        return false;
+//    }
 }
 

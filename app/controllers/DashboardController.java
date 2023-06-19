@@ -27,7 +27,6 @@ import javax.persistence.Persistence;
 import java.security.Key;
 
 import static Util.JWTUtil.SECRET_KEY;
-import static Util.JWTUtil.validateToken;
 import static com.google.inject.Key.get;
 import static io.jsonwebtoken.Jwts.header;
 
@@ -51,13 +50,14 @@ public class DashboardController extends Controller {
         String data = extractDataFromToken(token);
         System.out.println(data);
 
+
+
         try {
             JsonNode response = Json.parse(data);
 
             ObjectNode jsonFormattedString = Json.newObject()
                     .put("id", response.findValue("id").asText())
-                    .put("email", response.findValue("email").asText())
-                    .put("password", response.findValue("password").asText());
+                    .put("email", response.findValue("email").asText());
 
             String userEmail = jsonFormattedString.get("email").asText();
             System.out.println(userEmail + " 1234");
